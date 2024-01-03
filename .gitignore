@@ -1,0 +1,13 @@
+### react ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+.env
+**/output
+*.log
+config.php
+access_log.php
+

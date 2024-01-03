@@ -1,0 +1,6 @@
+# Redirect all requests through index.php so that contents of that file handles routing
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    RewriteRule ^ index.php [L]
+</IfModule>
