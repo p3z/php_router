@@ -22,6 +22,7 @@ require_once 'php_router.php';
 /*****************************************************************/
 // PHPRouter::add_route( $method, $path, $callback );
 PHPRouter::add_route('GET', '/', 'get_root');
+PHPRouter::add_route('GET', '/home', 'get_home');
 PHPRouter::add_route('GET', '/404', 'get_catchall');
 
 PHPRouter::run_router();

@@ -40,7 +40,7 @@ function get_root($params, $query) {
 } // end get_root
 
 function get_home($params, $query){
-
+  require_once ROOT_PATH . '/views/home.php';
 }// end get_home
 
 function get_catchall($params, $query) {
