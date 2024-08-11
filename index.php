@@ -1,7 +1,7 @@
 <?php
 
 require_once './utils.php';
-require_once './route_controller.php'; // A generic controller to handle all routes, you may want to break this up in future
+require_once './route_controller.php'; // Generic controller to handle all routes, you may want to break this up in future
 
 include 'config.php';
 if( !isset($env) ){

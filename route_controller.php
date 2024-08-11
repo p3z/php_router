@@ -21,16 +21,16 @@ function get_root($params, $query) {
       
         ];
       
-        $access_log_msg = build_log_message( $params );
-        save_to_file($access_log_msg);
+        $access_log_msg = FileUtils::build_log_message( $params );
+        FileUtils::save_to_file($access_log_msg);
         echo json_encode($info);
 }
 
 function get_catchall($params, $query) {
 
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);    
-        $access_log_msg = build_log_message( [$uri], "- invalid route");
-        save_to_file($access_log_msg);
+        $access_log_msg = FileUtils::build_log_message( [$uri], "- invalid route");
+        FileUtils::save_to_file($access_log_msg);
         echo json_encode(["invalid route"]);
 };
 
