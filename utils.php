@@ -28,10 +28,9 @@ class FileUtils{
                         $route_name = $params[0];
                 }
         
-                $access_log_msg = "route '" . $route_name. "' accessed at " . date('d-m-Y H:i:s');
-               
-         
-        
+                $date_time = date('d-m-Y H:i:s');
+                $access_log_msg =  "[ $date_time ] [route: '$route_name']";
+                       
                 foreach($params as $key => $val){
                         if(is_numeric($key)){
                                 unset($params[$key]); // params are always strings, so remove any default stuff, remainder shd now just be actual params user set
@@ -44,7 +43,7 @@ class FileUtils{
                 switch($include_msg){
                         case ($include_msg !== ""):
         
-                                $access_log_msg .= " " . $include_msg;                        
+                                $access_log_msg .= "[ $include_msg ]" ;                        
                                 break;
                         
                         default:
@@ -74,7 +73,7 @@ class FileUtils{
                         $subject = "Faker data API in use";
                         $message = 'User accessed the system at ' . date('d-m-Y H:i:s');
                         $headers = 'From: ' . $env['EMAIL_ERRORS_TO'] ?? " EMAIL_ERRORS_TO not set";
-                        EmailUtils::($to, $subject, $message, $headers);
+                        EmailUtils::send_email($to, $subject, $message, $headers);
             
                 } else {
             
@@ -137,7 +136,7 @@ class DatetimeUtils{
                 $result_date_time->add(new DateInterval('PT' . $random_seconds . 'S'));
             
                 return $result_date_time;
-                
+
         } // end class
 
 

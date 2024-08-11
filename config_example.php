@@ -6,4 +6,7 @@ $env = [
     'EMAIL_ERRORS_TO' => '<USER WHO RECEIVES EMAILS FROM send_email()>'
 ];
 
+$routes_list = []; // All registered routes are stored here
+$use_validation = true;
+
 ?>
