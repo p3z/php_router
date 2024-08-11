@@ -16,7 +16,7 @@ require_once 'php_router.php';
 # Register routes via add_route
 # add_route
 #   - $method
-#   - $path
+#   - $path: express route params inside curly brackets like so: '/user/{id}',
 #   - $callback: the function to run when user visits $path
 #
 /*****************************************************************/

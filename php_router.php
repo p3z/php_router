@@ -45,12 +45,26 @@ class PHPRouter{
   
       if (preg_match($final_pattern, $visited_path, $matches)) {
 
+        // Remove any numeric indexes (we're only interested in string matches, there are some numeric ones included for -_- reasons, this is basically an ugly tidyup)
+        foreach ($matches as $key => $value) {
+          if (is_int($key)) {
+              unset($matches[$key]);
+          }
+        }
+
         // The visited path matched the pattern so this route is vaid
         $valid_route = true;
 
         // Debugging output
-        // echo "Matched route: $path\n";
-        // var_dump($callback);
+       // echo "Matched route: $path\n";
+        //var_dump($callback);
+        // header('Content-type: application/json');
+        // $test = [
+        //   $final_pattern,
+        //   $visited_path
+        // ];
+        // echo json_encode($matches);
+        // die();
         
         // Woohoo, valid route, so let's run the callback
         $callback($matches, $query);

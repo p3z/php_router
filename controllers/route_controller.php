@@ -3,15 +3,12 @@
 /*****************************************************************/
 #
 # Register individual callbacks
-# $params: are 
-# $query
+# $route_params: are 
+# $query_params
 #
 /*****************************************************************/
 
-function get_root($params, $query) {
-
-  // echo "INside get_root";
-  // print_r($params);
+function get_root($route_params, $query_params) {
 
         $info = [
           'api_name' => "<Your API name>",
@@ -32,18 +29,18 @@ function get_root($params, $query) {
       
         ];
       
-        $access_log_msg = FileUtils::build_log_message( $params );
+        $access_log_msg = FileUtils::build_log_message( $route_params );
         FileUtils::save_to_file($access_log_msg);
 
         header('Content-type: application/json');
         echo json_encode($info);
 } // end get_root
 
-function get_home($params, $query){
+function get_home($route_params, $query_params){
   require_once ROOT_PATH . '/views/home.php';
 }// end get_home
 
-function get_catchall($params, $query) {
+function get_catchall($route_params, $query_params) {
 
         $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);    
         $access_log_msg = FileUtils::build_log_message( [$uri], "invalid route");
